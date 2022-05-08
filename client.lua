@@ -57,7 +57,7 @@ Citizen.CreateThread(function() --
                 if dist2 ~= nil and dist2 < 4.0 and v.exitPos ~= false then 
                     Citizen.InvokeNative(0x2A32FAA57B937173, 0x6903B113, v.exitPos.x, v.exitPos.y, v.exitPos.z-0.9 , 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.3, 126, 0, 0, 200, 0, 0, 2, 0, 0, 0, 0)
                 end
-                if dist < 1.6 then 
+                if dist < 1.2 then 
                     local label  = CreateVarString(10, 'LITERAL_STRING', "Enter: "..v.name)
                     PromptSetActiveGroupThisFrame(InteriorPrompts, label)
                     if Citizen.InvokeNative(0xC92AC953F0A982AE,EnterPrompt) then
@@ -65,7 +65,7 @@ Citizen.CreateThread(function() --
                         Citizen.Wait(2000)
                     end
                 end
-                if dist2 ~= nil and dist2 < 1.6 and v.exitSpawn ~= false then 
+                if dist2 ~= nil and dist2 < 1.2 and v.exitSpawn ~= false then 
                     local label  = CreateVarString(10, 'LITERAL_STRING', "Exit: "..v.name)
                     PromptSetActiveGroupThisFrame(InteriorExitPrompts, label)
                     if Citizen.InvokeNative(0xC92AC953F0A982AE,ExitPrompt) then
