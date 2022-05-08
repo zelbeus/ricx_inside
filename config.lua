@@ -41,7 +41,7 @@ Config.InsideOptions = {
         name = "Denis Wagon 1",
         enterPos = vector3(2442.335, -1480.083, 46.877),
         enterSpawn = vector3(2440.618, -1480.144, 46.971),
-        exitPos = vector3(2440.618, -1480.144, 46.971),--if has no issues with wall, add a position where players can reach the exit prompt
+        exitPos = vector3(2439.973, -1480.040, 46.971),--if has no issues with wall, add a position where players can reach the exit prompt
         exitSpawn = vector3(2442.335, -1480.083, 46.877),--if has no issues with wall, add vector3 position to spawn as exit
         job = {"smuggler","smuggler2"},--jobs to enter, or false for no job
         blip = {enable = true, sprite = 0},
