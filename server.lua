@@ -1,6 +1,6 @@
 
 
-local ServerFramework_inside = "redemrp" -- "redemrp" or "vorp"
+local ServerFramework_inside = "redemrp" -- "redemrp" or "vorp" or "qbr"
 
 local VorpCore
 
@@ -24,6 +24,9 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
             TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
                 job = user.getJob()
             end)
+        elseif ServerFramework_inside == "qbr" then
+            local User = exports['qbr-core']:GetPlayer(_source)
+            job = User.PlayerData.job
         end
         while job == nil do 
             Citizen.Wait(200)
