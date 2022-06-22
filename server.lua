@@ -26,7 +26,7 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
             end)
         elseif ServerFramework_inside == "qbr" then
             local User = exports['qbr-core']:GetPlayer(_source)
-            job = User.PlayerData.job
+            job = User.PlayerData.job.name
         end
         while job == nil do 
             Citizen.Wait(200)
