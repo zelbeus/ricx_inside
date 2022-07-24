@@ -4,7 +4,7 @@ local ServerFramework_inside = "redemrp" -- "redemrp" or "vorp" or "qbr"
 
 local VorpCore
 
-if ServerFramework == "vorp" then
+if ServerFramework_inside == "vorp" then
     TriggerEvent("getCore",function(core)
         VorpCore = core
     end)
