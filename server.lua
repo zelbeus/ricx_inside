@@ -35,7 +35,7 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
             end)
         elseif ServerFramework_inside == "redemrp-reboot" then
             local Player = RedEM.GetPlayer(_source)
-            local job = Player.job
+            job = Player.job
         elseif ServerFramework_inside == "qbr" then
             local User = exports['qbr-core']:GetPlayer(_source)
             job = User.PlayerData.job.name
