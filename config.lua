@@ -9,6 +9,7 @@ Config.InsideOptions = {
         exitSpawn = false,--if its a tent with buggy wall, turn false. Otherwise add vector3 position to spawn as exit
         job = {"wapiti","wapiti2"},--jobs to enter, or false for no job
         blip = {enable = false, sprite = 0},
+        item = {"lockpick", "key"},
     },
     [2] = {
         name = "Tent 2",
