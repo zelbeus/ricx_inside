@@ -1,6 +1,6 @@
 
 
-local ServerFramework_inside = "redemrp" -- "redemrp" or "vorp" or "qbr"
+local ServerFramework_inside = "redemrp" -- "redemrp" or "vorp" or "qbr" or "redemrp-reboot"
 
 local VorpCore
 
@@ -8,6 +8,15 @@ if ServerFramework_inside == "vorp" then
     TriggerEvent("getCore",function(core)
         VorpCore = core
     end)
+elseif ServerFramework_inside == "redemrp" then
+    TriggerEvent("redemrp_inventory:getData",function(call)
+        data = call
+    end)
+elseif ServerFramework_inside == "redemrp-reboot" then
+    TriggerEvent("redemrp_inventory:getData",function(call)
+        data = call
+    end)
+    RedEM = exports["redem_roleplay"]:RedEM()
 end
 
 RegisterServerEvent("ricx_inside:setcoords_enter")
@@ -24,6 +33,9 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
             TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
                 job = user.getJob()
             end)
+        elseif ServerFramework_inside == "redemrp-reboot" then
+            local Player = RedEM.GetPlayer(_source)
+            local job = Player.job
         elseif ServerFramework_inside == "qbr" then
             local User = exports['qbr-core']:GetPlayer(_source)
             job = User.PlayerData.job.name
@@ -53,7 +65,7 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
                     end
                 end
             end
-        elseif ServerFramework_inside == "redemrp" then
+        elseif ServerFramework_inside == "redemrp" or ServerFramework_inside == "redemrp-reboot" then
             for i,v in pairs(Config.InsideOptions[_id].item) do 
                 if not item then 
                     local itemD = data.getItem(_source, v)
