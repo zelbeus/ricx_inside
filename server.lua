@@ -42,6 +42,41 @@ AddEventHandler("ricx_inside:setcoords_enter", function(x,y,z, id)
             return TriggerClientEvent("ricx_inside:error", _source, "requires job to use")
         end
     end
+    if Config.InsideOptions[_id].item then 
+        local item = nil 
+        if ServerFramework_inside == "vorp" then
+            for i,v in pairs(Config.InsideOptions[_id].item) do 
+                if not item then 
+                    local itemD = VorpInv.getItemCount(_source, v)
+                    if itemD and itemD > 0 then 
+                        item = true 
+                    end
+                end
+            end
+        elseif ServerFramework_inside == "redemrp" then
+            for i,v in pairs(Config.InsideOptions[_id].item) do 
+                if not item then 
+                    local itemD = data.getItem(_source, v)
+                    if itemD and itemD.ItemAmount > 0 then 
+                        item = true 
+                    end
+                end
+            end
+        elseif ServerFramework_inside == "qbr" then
+            local User = exports['qbr-core']:GetPlayer(_source)
+            for i,v in pairs(Config.InsideOptions[_id].item) do 
+                if not item then 
+                    local hasItem = User.Functions.GetItemByName(v)
+                    if hasItem and hasItem.amount > 0 then 
+                        item = true 
+                    end
+                end
+            end
+        end
+        if not item then 
+           return TriggerClientEvent("ricx_inside:error", _source, "No item!")
+        end
+     end
     SetEntityCoords(GetPlayerPed(_source), x, y, z-0.5)
 end)
 
